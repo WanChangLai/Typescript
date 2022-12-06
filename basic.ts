@@ -23,21 +23,18 @@ let hobbies: string[];
 
 hobbies = ["Sports", "Cooking"];
 
-//object
-let person: {
+//alias
+type Person = {
   name: string;
   age: number;
 };
 
-person = { name: "Max", age: 12 };
+let person: Person = { name: "Max", age: 12 };
 
 //person = { isEmployee: true };
 
 //this is an array storing bunch of objects
-let people: {
-  name: string;
-  age: number;
-}[];
+let people: Person[];
 
 //type inference + union
 let course: string | number = "React--the complete guide";
