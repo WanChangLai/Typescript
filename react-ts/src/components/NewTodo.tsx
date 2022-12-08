@@ -1,20 +1,20 @@
 import { useRef } from "react";
 
-const NewTodo = () => {
+// onAddTodo will be a function receive a string type of text and return nothing
+const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
   const todoTextInputRef = useRef<HTMLInputElement>(null);
 
-  // event object type
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
 
-    //? try to access value and if it suceeds, it stored in enteredText
-    // if that fails, it stored null
     const enteredText = todoTextInputRef.current!.value;
 
     if (enteredText.trim().length === 0) {
       //throw an error
       return;
     }
+
+    props.onAddTodo(enteredText);
   };
 
   return (
